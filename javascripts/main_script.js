@@ -110,14 +110,15 @@
                 "System.out.println(\"Hello World!\");",
                 "printf(\"Hello World!\\n\");",
                 "echo \"Hello World!\"",
-                "std::cout &lt;&lt; \"Hello World!\\n\";",
+                "cout << \"Hello World!\" << endl;",
                 "console.log(\"Hello World!\");",
                 "Write-Output \"Hello World!\"",
                 "Console.WriteLine(\"Hello World!\");"
               ],
               typeSpeed: 50,
               loop: true,
-              backDelay: 1000
+              backDelay: 1000,
+              contentType: 'text'
           });
       });
 
