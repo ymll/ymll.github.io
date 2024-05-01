@@ -1,0 +1,12 @@
+{
+  "short_name": "Lily Yung",
+  "name": "Lily Yung Homepage",
+  "icons": [{
+    "src": "icon.png",
+    "type": "image/png",
+    "sizes": "16x16"
+  }],
+  "start_url": "/?utm_source=homescreen",
+  "background_color": "#77be2d",
+  "theme_color": "#77be2d"
+}
