@@ -60,10 +60,7 @@
     $('.portfolio').mixItUp();
 
     $('.work-popup').magnificPopup({
-      type: 'image',
-      gallery: {
-        enabled: true
-      },
+      type: 'inline',
       zoom: {
         enabled: true,
         duration: 300,

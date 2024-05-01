@@ -640,6 +640,29 @@ section {
   margin-left: -40px;
 }
 
+.work-items-popup {
+  position: relative;
+  background: #FFF;
+  padding: 0;
+  width: auto;
+  max-width: 1200px;
+  margin: 20px auto;
+  line-height: 0;
+}
+
+.ajcol {
+  width: 50%; float:left;
+}
+.ajcol img {
+  width: 100%; height: auto;
+}
+@media all and (max-width:30em) {
+  .ajcol {
+    width: 100%;
+    float:none;
+  }
+}
+
 .item .title {
   color: #777;
   font-size: 15px;
