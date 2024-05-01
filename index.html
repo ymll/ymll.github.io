@@ -80,127 +80,479 @@
     </section>
     <!-- Slider ends -->
     <!-- Work starts -->
-    <section id="work" class="works section-big">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 text-center">
-            <div class="section-title">
-              <h2><span></span>Projects</h2>
-              <p></p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <ul class="work filters">
-            <li class="filter active" data-filter="all">
-              <span class="fa fa-globe"></span> All
-            </li>
-            <li class="filter" data-filter=".game">
-              <span class="fa fa-gamepad"></span> Game
-            </li>
-            <li class="filter" data-filter=".web">
-              <span class="fa fa-mobile"></span> Web
-            </li>
-            <li class="filter" data-filter=".graphic">
-              <span class="fa fa-camera"></span> Graphic
-            </li>
-          </ul>
-        </div>
-        <div class="portfolio" id="MixItUp">
-          <div class="row work-items">
-            <div class="col-md-4 col-sm-6 mix web" data-bound="" style="display: inline-block;">
-              <div class="item">
-                <a href="#project-countdown-timer-popup" class="work-popup">
-                  <img src="./img/project-countdown-timer.png" alt="">
-                  <div class="overlay">
-                    <span>Countdown timer</span>
-                  </div>
-                </a>
-                <div id="project-countdown-timer-popup" class="work-items-popup mfp-hide">
-                  <div class="ajcol">
-                    <img src="img/project-countdown-timer.png"/>
-                  </div>
-                  <div class="ajcol" style="line-height: 1.231;">
-                    <div style="padding: 1em">
-                      <h1>Countdown timer</h1>
-                      <p>&nbsp;</p>
-                    </div>
-                  </div>
-                  <div style="clear:both; line-height: 0;"></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6 mix graphic" data-bound="" style="display: inline-block;">
-              <div class="item">
-                <a href="#project-photoshop-popup" class="work-popup">
-                  <img src="./img/project-photoshop.png" alt="">
-                  <div class="overlay">
-                    <span>Adobe Photoshop and Illustrator learning materials</span>
-                  </div>
-                </a>
-                <div id="project-photoshop-popup" class="work-items-popup mfp-hide">
-                  <div class="ajcol">
-                    <img src="img/project-photoshop.png"/>
-                  </div>
-                  <div class="ajcol" style="line-height: 1.231;">
-                    <div style="padding: 1em">
-                      <h1>Adobe Photoshop and Illustrator learning materials</h1>
-                      <p>&nbsp;</p>
-                    </div>
-                  </div>
-                  <div style="clear:both; line-height: 0;"></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6 mix web game" data-bound="" style="display: inline-block;">
-              <div class="item">
-                <a href="#project-pikachu-popup" class="work-popup">
-                  <img src="./img/project-pikachu.png" alt="">
-                  <div class="overlay">
-                    <span>Pikachu Dodgeball ピカチュウドッジボール</span>
-                  </div>
-                </a>
-                <div id="project-pikachu-popup" class="work-items-popup mfp-hide">
-                  <div class="ajcol">
-                    <img src="img/project-pikachu.png"/>
-                  </div>
-                  <div class="ajcol" style="line-height: 1.231;">
-                    <div style="padding: 1em">
-                      <h1>Pikachu Dodgeball ピカチュウドッジボール</h1>
-                      <p>&nbsp;</p>
-                    </div>
-                  </div>
-                  <div style="clear:both; line-height: 0;"></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6 mix game web" data-bound="" style="display: inline-block;">
-              <div class="item">
-                <a href="#project-2048-popup" class="work-popup">
-                  <img src="./img/project-2048.png" alt="">
-                  <div class="overlay">
-                    <span>CUHK 2048</span>
-                  </div>
-                </a>
-                <div id="project-2048-popup" class="work-items-popup mfp-hide">
-                  <div class="ajcol">
-                    <img src="img/project-2048.png"/>
-                  </div>
-                  <div class="ajcol" style="line-height: 1.231;">
-                    <div style="padding: 1em">
-                      <h1>CUHK 2048</h1>
-                      <p>&nbsp;</p>
-                    </div>
-                  </div>
-                  <div style="clear:both; line-height: 0;"></div>
-                </div>
-              </div>
-            </div>
-          </div>
+<section id="work" class="works section-big">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <div class="section-title">
+          <h2><span></span>Projects</h2>
+          <p></p>
         </div>
       </div>
-    </section>
-    <!-- Work ends -->
+    </div>
+    <div class="row">
+      <ul class="work filters">
+        <li class="filter active" data-filter="all">
+          <span class="fa fa-globe"></span> All
+        </li>
+        <li class="filter" data-filter=".game">
+          <span class="fa fa-gamepad"></span> Game
+        </li>
+        <li class="filter" data-filter=".web">
+          <span class="fa fa-mobile"></span> Web
+        </li>
+        <li class="filter" data-filter=".graphic">
+          <span class="fa fa-camera"></span> Graphic
+        </li>
+        <li class="filter" data-filter=".chatbot">
+          <span class="fa fa-robot"></span> Chatbot
+        </li>
+        <li class="filter" data-filter=".system">
+          <span class="fa fa-server"></span> Backend
+        </li>
+      </ul>
+    </div>
+    <div class="portfolio" id="MixItUp">
+      <div class="row work-items">
+        <!-- Project 1: CUHK 2048 -->
+        <div class="col-md-4 col-sm-6 mix game web" data-bound="" style="display: inline-block;">
+          <div class="item">
+            <a href="#project-2048-popup" class="work-popup">
+              <img src="./img/project-2048.png" alt="">
+              <div class="overlay">
+                <span>CUHK 2048</span>
+              </div>
+            </a>
+            <div id="project-2048-popup" class="work-items-popup mfp-hide">
+              <div class="ajcol">
+                <img src="img/project-2048.png"/>
+              </div>
+              <div class="ajcol" style="line-height: 1.231;">
+                <div style="padding: 1em">
+                  <h1>CUHK 2048</h1>
+                  <p>Description: A unique variant of the classic 2048 game, featuring CUHK Colleges Names and delightful end-game messages for an entertaining experience. Developed using JavaScript.</p>
+                  <p>Last Updated: Jun 9, 2019</p>
+                  <p>GitHub Link: <a href="https://github.com/ymll/2048">https://github.com/ymll/2048</a></p>
+                </div>
+              </div>
+              <div style="clear:both; line-height: 0;"></div>
+            </div>
+          </div>
+        </div>
+        <!-- End of Project 1 -->
+
+        <!-- Project 2: Adobe Design Tools Self-Learning -->
+        <div class="col-md-4 col-sm-6 mix graphic" data-bound="" style="display: inline-block;">
+          <div class="item">
+            <a href="#project-adobe-learning-popup" class="work-popup">
+              <img src="./img/project-photoshop.png" alt="">
+              <div class="overlay">
+                <span>Adobe Design Tools self-learning materials</span>
+              </div>
+            </a>
+            <div id="project-adobe-learning-popup" class="work-items-popup mfp-hide">
+              <div class="ajcol">
+                <img src="img/project-photoship.png"/>
+              </div>
+              <div class="ajcol" style="line-height: 1.231;">
+                <div style="padding: 1em">
+                  <h1>Adobe Design Tools - Photoshop and Illustrator self-learning materials</h1>
+                  <p>Description: Extensive instructional resources tailored for self-paced mastery of Adobe Photoshop and Illustrator. Developed during teaching experience in HTML.</p>
+                  <p>Last Updated: Dec 28, 2017</p>
+                  <p>GitHub Link: <a href="https://github.com/ymll/Adobe-Design-Tools-self-learning">https://github.com/ymll/Adobe-Design-Tools-self-learning</a></p>
+                </div>
+              </div>
+              <div style="clear:both; line-height: 0;"></div>
+            </div>
+          </div>
+        </div>
+        <!-- End of Project 2 -->
+
+        <!-- Project 3: Personalised Countdown Timer -->
+        <div class="col-md-4 col-sm-6 mix web" data-bound="" style="display: inline-block;">
+          <div class="item">
+            <a href="#project-countdown-timer-popup" class="work-popup">
+              <img src="./img/project-countdown-timer.png" alt="">
+              <div class="overlay">
+                <span>Personalised Countdown Timer</span>
+              </div>
+            </a>
+            <div id="project-countdown-timer-popup" class="work-items-popup mfp-hide">
+              <div class="ajcol">
+                <img src="img/project-countdown-timer.png"/>
+              </div>
+              <div class="ajcol" style="line-height: 1.231;">
+                <div style="padding: 1em">
+                  <h1>Personalised Countdown Timer</h1>
+                  <p>Description: A basic countdown timer which can be customised and managed with targeted dates, utilising cookie management for better user experience. Developed using JavaScript.</p>
+                  <p>Last Updated: Oct 15, 2021</p>
+                  <p>GitHub Link: <a href="https://github.com/ymll/countdown">https://github.com/ymll/countdown</a></p>
+                </div>
+              </div>
+              <div style="clear:both; line-height: 0;"></div>
+            </div>
+          </div>
+        </div>
+        <!-- End of Project 3 -->
+
+        <!-- Project 4: Pikachu's Dodgeball Adventure -->
+        <div class="col-md-4 col-sm-6 mix game" data-bound="" style="display: inline-block;">
+          <div class="item">
+            <a href="#project-pikachu-popup" class="work-popup">
+              <img src="./img/project-pikachu.png" alt="">
+              <div class="overlay">
+                <span>Pikachu's Dodgeball Adventure</span>
+              </div>
+            </a>
+            <div id="project-pikachu-popup" class="work-items-popup mfp-hide">
+              <div class="ajcol">
+                <img src="img/project-pikachu.png"/>
+              </div>
+              <div class="ajcol" style="line-height: 1.231;">
+                <div style="padding: 1em">
+                  <h1>Pikachu Dodgeball ピカチュウドッジボール</h1>
+                  <p>Description: Join Pikachu and his friends in an exciting dodgeball game with support for multiple users and cross-device compatibility. Developed using Unity.</p>
+                  <p>Last Updated: May 17, 2016</p>
+                  <p>GitHub Link: <a href="https://github.com/ymll/Pikachu-Dodge-ball">https://github.com/ymll/Pikachu-Dodge-ball</a></p>
+                </div>
+              </div>
+              <div style="clear:both; line-height: 0;"></div>
+            </div>
+          </div>
+        </div>
+        <!-- End of Project 4 -->
+
+        <!-- Project 5: VPS (Visually-impaired Positioning System) -->
+        <div class="col-md-4 col-sm-6 mix mobile system" data-bound="" style="display: inline-block;">
+          <div class="item">
+            <a href="#project-vps-popup" class="work-popup">
+              <img src="https://www.cse.cuhk.edu.hk/wp-content/uploads/achievement/poster2.jpg" alt="">
+              <div class="overlay">
+                <span>VPS (Visually-impaired Positioning System)</span>
+              </div>
+            </a>
+            <div id="project-vps-popup" class="work-items-popup mfp-hide">
+              <div class="ajcol">
+                <img src="https://www.cse.cuhk.edu.hk/wp-content/uploads/achievement/poster2.jpg"/>
+              </div>
+              <div class="ajcol" style="line-height: 1.231;">
+                <div style="padding: 1em">
+                  <h1>VPS (Visually-impaired Positioning System)</h1>
+                  <p>Description: VPS stands for Visually-impaired Positioning System. It is a new guiding system to facilitate the visually-impaired to go out in a more safety way and explore a new place independently with an mobile app and a special designed guide stick. Developed in Java.</p>
+                  <p>More to read: <a href="https://www.cse.cuhk.edu.hk/news/achievements/computer-science-students-won-the-champion-and-the-my-favourite-project-award-of-the-hkie-joint-institutes-competition-2014/">HKIE Joint Institutes Competition 2014</a></p>
+                  <p>Last Updated: Jun 12, 2014</p>
+                  <p>GitHub Link: <a href="https://github.com/ymll/vps">https://github.com/ymll/VPS</a></p>
+                </div>
+              </div>
+              <div style="clear:both; line-height: 0;"></div>
+            </div>
+          </div>
+        </div>
+        <!-- End of Project 5 -->
+
+        <!-- Project 6: Airport & Airline Award App -->
+        <div class="col-md-4 col-sm-6 mix mobile" data-bound="" style="display: inline-block;">
+          <div class="item">
+            <a href="#project-airport-award-popup" class="work-popup">
+              <img src="https://github.com/ymll/Andriod-App-World-Best-Airport/blob/master/app/src/main/res/drawable/airline.jpg?raw=true" alt="">
+              <div class="overlay">
+                <span>Airport & Airline Award App</span>
+              </div>
+            </a>
+            <div id="project-airport-award-popup" class="work-items-popup mfp-hide">
+              <div class="ajcol">
+                <img src="https://github.com/ymll/Andriod-App-World-Best-Airport/blob/master/app/src/main/res/drawable/airline.jpg?raw=true"/>
+              </div>
+              <div class="ajcol" style="line-height: 1.231;">
+                <div style="padding: 1em">
+                  <h1>Airport & Airline Award App</h1>
+                  <p>Description: A template for a mobile programming assignment, allowing users to vote for the world's best airports and airlines. For tuition purpose, showcases essential Android development skills, developed in Java.</p>
+                  <p>Last Updated: Apr 20, 2016</p>
+                  <p>GitHub Link: <a href="https://github.com/ymll/Andriod-App-World-Best-Airport">https://github.com/ymll/Andriod-App-World-Best-Airport/a></p>
+                </div>
+              </div>
+              <div style="clear:both; line-height: 0;"></div>
+            </div>
+          </div>
+        </div>
+        <!-- End of Project 6 -->
+
+        <!-- Project 7: Google Cardboard Game Demo -->
+        <div class="col-md-4 col-sm-6 mix mobile game" data-bound="" style="display: inline-block;">
+          <div class="item">
+            <a href="#project-cardboard-popup" class="work-popup">
+              <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig1uqhX7jhhIAxI1fh84xySSbohcDp5_6kp4c1cN22fjJbtNKzt3Y7xULCRcuaodJhkwRnDEgBs1A8aYbl6pjCOMV5P2xzUaso8QRC8m9lkjR4gGoWqN8x8-P64r_x0Ar2rcM_Oq_jlZQ/s1600/Logo_cardboard_small.png" alt="">
+              <div class="overlay">
+                <span>Google Cardboard Game Demo</span>
+              </div>
+            </a>
+            <div id="project-cardboard-popup" class="work-items-popup mfp-hide">
+              <div class="ajcol">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig1uqhX7jhhIAxI1fh84xySSbohcDp5_6kp4c1cN22fjJbtNKzt3Y7xULCRcuaodJhkwRnDEgBs1A8aYbl6pjCOMV5P2xzUaso8QRC8m9lkjR4gGoWqN8x8-P64r_x0Ar2rcM_Oq_jlZQ/s1600/Logo_cardboard_small.png"/>
+              </div>
+              <div class="ajcol" style="line-height: 1.231;">
+                <div style="padding: 1em">
+                  <h1>Google Cardboard Game Demo</h1>
+                  <p>Description: A basic game demo for Google Cardboard featuring a living room setting and a single player model. Developed using Unity.</p>
+                  <p>Last Updated: Sep 13, 2015</p>
+                  <p>GitHub Link: <a href="https://github.com/ymll/cardboard-sample-app">https://github.com/ymll/cardboard-sample-app</a></p>
+                </div>
+              </div>
+              <div style="clear:both; line-height: 0;"></div>
+            </div>
+          </div>
+        </div>
+        <!-- End of Project 7 -->
+
+        <!-- Project 8: Train World Animation -->
+        <div class="col-md-4 col-sm-6 mix game graphic" data-bound="" style="display: inline-block;">
+          <div class="item">
+            <a href="#project-train-world-popup" class="work-popup">
+              <img src="./img/project-train-world.png" alt="">
+              <div class="overlay">
+                <span>Train World Animation</span>
+              </div>
+            </a>
+            <div id="project-train-world-popup" class="work-items-popup mfp-hide">
+              <div class="ajcol">
+                <img src="img/project-train-world.png"/>
+              </div>
+              <div class="ajcol" style="line-height: 1.231;">
+                <div style="padding: 1em">
+                  <h1>Train World Animation</h1>
+                  <p>Description: An animation featuring rain, ducks, and trains traversing a magical castle landscape. Developed using OpenGL in C++.</p>
+                  <p>Last Updated: Dec 9, 2015</p>
+                  <p>GitHub Link: <a href="https://github.com/ymll/OpenGL-Train-World">https://github.com/ymll/OpenGL-Train-World</a></p>
+                </div>
+              </div>
+              <div style="clear:both; line-height: 0;"></div>
+            </div>
+          </div>
+        </div>
+        <!-- End of Project 8 -->
+
+        <!-- Project 9: OpenGL Car Driving Game -->
+        <div class="col-md-4 col-sm-6 mix game graphic" data-bound="" style="display: inline-block;">
+          <div class="item">
+            <a href="#project-opengl-car-popup" class="work-popup">
+              <img src="./img/project-opengl-car.png" alt="">
+              <div class="overlay">
+                <span>OpenGL Car Driving Game</span>
+              </div>
+            </a>
+            <div id="project-opengl-car-popup" class="work-items-popup mfp-hide">
+              <div class="ajcol">
+                <img src="img/project-opengl-car.png"/>
+              </div>
+              <div class="ajcol" style="line-height: 1.231;">
+                <div style="padding: 1em">
+                  <h1>OpenGL Car Driving Game</h1>
+                  <p>Description: Classic car driving experience crafted with OpenGL. Developed as a CSCI3260 assignment, this game offers simple yet engaging gameplay in C.</p>
+                  <p>Last Updated: Nov 9, 2015</p>
+                  <p>GitHub Link: <a href="https://github.com/ymll/OpenGL-Car-Driving-Game">https://github.com/ymll/OpenGL-Car-Driving-Game</a></p>
+                </div>
+              </div>
+              <div style="clear:both; line-height: 0;"></div>
+            </div>
+          </div>
+        </div>
+        <!-- End of Project 9 -->
+
+        <!-- Project 10: Snowing Animation -->
+        <div class="col-md-4 col-sm-6 mix graphic" data-bound="" style="display: inline-block;">
+          <div class="item">
+            <a href="#project-snowing-popup" class="work-popup">
+              <img src="./img/project-snowing.png" alt="">
+              <div class="overlay">
+                <span>Snowing Animation</span>
+              </div>
+            </a>
+            <div id="project-snowing-popup" class="work-items-popup mfp-hide">
+              <div class="ajcol">
+                <img src="img/project-snowing.png"/>
+              </div>
+              <div class="ajcol" style="line-height: 1.231;">
+                <div style="padding: 1em">
+                  <h1>Snowing Animation</h1>
+                  <p>Description: Witness random snowmen appearing in a snowy environment, each with its own unique appearance. Developed using OpenGL in C.</p>
+                  <p>Last Updated: Apr 6, 2016</p>
+                  <p>GitHub Link: <a href="https://github.com/ymll/OpenGL-Snowing-Scene">https://github.com/ymll/OpenGL-Snowing-Scene</a></p>
+                </div>
+              </div>
+              <div style="clear:both; line-height: 0;"></div>
+            </div>
+          </div>
+        </div>
+        <!-- End of Project 10 -->
+
+        <!-- Project 11: Symphony KYC Onboarding Bot -->
+        <div class="col-md-4 col-sm-6 mix chatbot" data-bound="" style="display: inline-block;">
+          <div class="item">
+            <a href="#project-kyc-bot-popup" class="work-popup">
+              <img src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F57142317%2F244293980670%2F1%2Foriginal.20190220-190755?h=200&w=450&auto=compress&rect=0%2C40%2C3600%2C1800&s=87e55032808ce7aaf06a7eff8a80bb15" alt="">
+              <div class="overlay">
+                <span>Symphony KYC Onboarding Bot</span>
+              </div>
+            </a>
+            <div id="project-kyc-bot-popup" class="work-items-popup mfp-hide">
+              <div class="ajcol">
+                <img src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F57142317%2F244293980670%2F1%2Foriginal.20190220-190755?h=200&w=450&auto=compress&rect=0%2C40%2C3600%2C1800&s=87e55032808ce7aaf06a7eff8a80bb15"/>
+              </div>
+              <div class="ajcol" style="line-height: 1.231;">
+                <div style="padding: 1em">
+                  <h1>Symphony KYC Onboarding Bot</h1>
+                  <p>Description: Streamline KYC (Know Your Customer) Onboarding processes with our Symphony-integrated bot, developed for the Symphony Hackathon 2019. Developed in Python.</p>
+                  <p>Last Updated: May 24, 2019</p>
+                  <p>GitHub Link: <a href="https://github.com/ymll/Symphony_KYC_Onboarding_bot">https://github.com/ymll/symphony_kyc_onboarding_bot</a></p>
+                </div>
+              </div>
+              <div style="clear:both; line-height: 0;"></div>
+            </div>
+          </div>
+        </div>
+        <!-- End of Project 11 -->
+
+        <!-- Project 12: Symphony Trading Bot -->
+        <div class="col-md-4 col-sm-6 mix chatbot" data-bound="" style="display: inline-block;">
+          <div class="item">
+            <a href="#project-trading-bot-popup" class="work-popup">
+              <img src="https://symphony.com/wp-content/uploads/2022/01/SYM-logo-640.png" alt="">
+              <div class="overlay">
+                <span>Symphony Trading Bot</span>
+              </div>
+            </a>
+            <div id="project-trading-bot-popup" class="work-items-popup mfp-hide">
+              <div class="ajcol">
+                <img src="https://symphony.com/wp-content/uploads/2022/01/SYM-logo-640.png"/>
+              </div>
+              <div class="ajcol" style="line-height: 1.231;">
+                <div style="padding: 1em">
+                  <h1>Symphony Trading Bot</h1>
+                  <p>Description: Symphony-Integrated Trading Bot: Seamlessly integrates with Symphony platform to offer real-time graph plotting, efficient handling of trading commands, and Natural Language Processing (NLP) capabilities. Developed in Python.</p>
+                  <p>Last Updated: Jul 16, 2018</p>
+                  <p>GitHub Link: <a href="https://github.com/ymll/symphony_trading_bot">https://github.com/ymll/symphony_trading_bot</a></p>
+                </div>
+              </div>
+              <div style="clear:both; line-height: 0;"></div>
+            </div>
+          </div>
+        </div>
+        <!-- End of Project 12 -->
+
+        <!-- Project 13: ASCII Art Generator -->
+        <div class="col-md-4 col-sm-6 mix multimedia graphic" data-bound="" style="display: inline-block;">
+          <div class="item">
+            <a href="#project-ascii-gen-popup" class="work-popup">
+              <img src="./img/project-ascii-gen.png" alt="">
+              <div class="overlay">
+                <span>ASCII Art Generator</span>
+              </div>
+            </a>
+            <div id="project-ascii-gen-popup" class="work-items-popup mfp-hide">
+              <div class="ajcol">
+                <img src="img/project-ascii-gen.png"/>
+              </div>
+              <div class="ajcol" style="line-height: 1.231;">
+                <div style="padding: 1em">
+                  <h1>ASCII Art Generator</h1>
+                  <p>Description: This project consists of 2 parts - an ASCII art converter and LZW compression implementation. This serves as a comprehensive resource for students undertaking Multimedia system courses like CSCI3280. Developed in C and C++.</p>
+                  <p>Last Updated: Apr 3, 2016</p>
+                  <p>GitHub Link: <a href="https://github.com/ymll/Multimedia-Systems">https://github.com/ymll/Multimedia-Systems</a></p>
+                </div>
+              </div>
+              <div style="clear:both; line-height: 0;"></div>
+            </div>
+          </div>
+        </div>
+        <!-- End of Project 13 -->
+
+        <!-- Project 14: Hadoop In-mapper Combiner -->
+        <div class="col-md-4 col-sm-6 mix system" data-bound="" style="display: inline-block;">
+          <div class="item">
+            <a href="#project-hadoop-popup" class="work-popup">
+              <img src="https://i0.wp.com/idsc.miami.edu/wp-content/uploads/2016/05/Hadoop-Map-Reduce-940x530-1.jpg?resize=940%2C530&ssl=1" alt="">
+              <div class="overlay">
+                <span>Hadoop In-mapper Combiner</span>
+              </div>
+            </a>
+            <div id="project-hadoop-popup" class="work-items-popup mfp-hide">
+              <div class="ajcol">
+                <img src="https://i0.wp.com/idsc.miami.edu/wp-content/uploads/2016/05/Hadoop-Map-Reduce-940x530-1.jpg?resize=940%2C530&ssl=1"/>
+              </div>
+              <div class="ajcol" style="line-height: 1.231;">
+                <div style="padding: 1em">
+                  <h1>Hadoop In-mapper Combiner</h1>
+                  <p>Description: Showcasing the utilisation of in-mapper combinator technique in Hadoop - A solution for the CSCI4180 assignment.</p>
+                  <p>Last Updated: Oct 18, 2015</p>
+                  <p>GitHub Link: <a href="https://github.com/ymll/Hadoop-In-mapper-Combiner">https://github.com/ymll/Hadoop-In-mapper-Combiner</a>a</p>
+                </div>
+              </div>
+              <div style="clear:both; line-height: 0;"></div>
+            </div>
+          </div>
+        </div>
+        <!-- End of Project 14 -->
+
+        <!-- Project 15: P2P Karaoke System -->
+        <div class="col-md-4 col-sm-6 mix multimedia system" data-bound="" style="display: inline-block;">
+          <div class="item">
+            <a href="#project-p2p-karaoke-popup" class="work-popup">
+              <img src="./img/project-p2p-karaoke.png" alt="">
+              <div class="overlay">
+                <span>P2P Karaoke System</span>
+              </div>
+            </a>
+            <div id="project-p2p-karaoke-popup" class="work-items-popup mfp-hide">
+              <div class="ajcol">
+                <img src="img/project-p2p-karaoke.png"/>
+              </div>
+              <div class="ajcol" style="line-height: 1.231;">
+                <div style="padding: 1em">
+                  <h1>P2P Karaoke System</h1>
+                  <p>Description: Developed a feature-rich multimedia application integrating music management, lyrics display, network connectivity, and real-time video streaming for a seamless user experience. Developed in C#.</p>
+                  <p>Last Updated: Mar 18, 2018</p>
+                  <p>GitHub Link: <a href="https://github.com/ymll/P2P-Karaoke-System">https://github.com/ymll/P2P-Karaoke-System</a></p>
+                </div>
+              </div>
+              <div style="clear:both; line-height: 0;"></div>
+            </div>
+          </div>
+        </div>
+        <!-- End of Project 15 -->
+
+        <!-- Project 16: 100 Reasons Not to Go to Work (Coming Soon) -->
+        <div class="col-md-4 col-sm-6 mix web" data-bound="" style="display: inline-block;">
+          <div class="item">
+            <a href="#project-excuse-gen-popup" class="work-popup">
+              <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="">
+              <div class="overlay">
+                <span>100 Reasons Not to Go to Work (Coming Soon)</span>
+              </div>
+            </a>
+            <div id="project-excuse-gen-popup" class="work-items-popup mfp-hide">
+              <div class="ajcol">
+                <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"/>
+              </div>
+              <div class="ajcol" style="line-height: 1.231;">
+                <div style="padding: 1em">
+                  <h1>[Coming Soon] 100 Reasons Not to Go to Work</h1>
+                  <p>Description: Your ultimate excuse generator for those days when you need a break from the office grind.</p>
+                  <p>Watch the GitHub Project to get update: <a href="https://github.com/ymll/100-reasons-not-to-go-to-work">https://github.com/ymll/100-reasons-not-to-go-to-work</a></p>
+                </div>
+              </div>
+              <div style="clear:both; line-height: 0;"></div>
+            </div>
+          </div>
+        </div>
+        <!-- End of Project 16 -->
+
+        <!-- Repeat the above structure for all remaining projects -->
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Work ends -->
     <!-- Quote starts -->
     <section id="quote" class="testimonial-area section-big">
       <div class="container">
