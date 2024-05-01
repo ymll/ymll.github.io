@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const HtmlMinimizerPlugin = require("html-minimizer-webpack-plugin");
 
 module.exports = merge(common, {
   mode: 'production',
@@ -37,6 +38,7 @@ module.exports = merge(common, {
           ],
         },
       }),
+      new HtmlMinimizerPlugin(),
     ],
   },
 });
