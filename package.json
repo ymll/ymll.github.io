@@ -14,11 +14,13 @@
     "build": "webpack --config webpack.config.prod.js"
   },
   "devDependencies": {
-    "copy-webpack-plugin": "^11.0.0",
+    "copy-webpack-plugin": "^12.0.2",
+    "css-loader": "^7.1.1",
     "css-minimizer-webpack-plugin": "^6.0.0",
-    "html-minimizer-webpack-plugin": "^5.0.0",
+    "html-loader": "^5.0.0",
     "html-webpack-partials-plugin": "^0.8.0",
     "html-webpack-plugin": "^5.5.3",
+    "mini-css-extract-plugin": "^2.9.0",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1",
