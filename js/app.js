@@ -1,3 +1,6 @@
+import '../css/style.css';
+import '../css/main.css';
+
 (function($) {
   'use strict';
 

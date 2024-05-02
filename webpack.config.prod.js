@@ -1,19 +1,23 @@
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
 const path = require('path');
 const HtmlWebpackPartialsPlugin = require("html-webpack-partials-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-const HtmlMinimizerPlugin = require("html-minimizer-webpack-plugin");
+const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 
 module.exports = merge(common, {
   mode: 'production',
+  module: {
+    rules: [
+      {
+        test: /\.(jpe?g|png)/i,
+        type: "asset",
+      },
+    ],
+  },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: './index.html',
-    }),
     new HtmlWebpackPartialsPlugin({
       path: path.join(__dirname, './partials/analytics.html'),
       location: 'head',
@@ -24,9 +28,6 @@ module.exports = merge(common, {
     }),
     new CopyPlugin({
       patterns: [
-        { from: 'img', to: 'img' },
-        { from: 'css', to: 'css' },
-        { from: 'js/vendor', to: 'js/vendor' },
         { from: 'favicon.ico', to: 'favicon.ico' },
         { from: 'robots.txt', to: 'robots.txt' },
         { from: 'icon.png', to: 'icon.png' },
@@ -48,7 +49,22 @@ module.exports = merge(common, {
           ],
         },
       }),
-      new HtmlMinimizerPlugin(),
+      new ImageMinimizerPlugin({
+        generator: [
+          {
+            preset: "webp",
+            implementation: ImageMinimizerPlugin.sharpGenerate,
+            options: {
+              encodeOptions: {
+                webp: {
+                  lossless: false,
+                  quality: 90,
+                },
+              },
+            },
+          },
+        ],
+      }),
     ],
   },
 });
