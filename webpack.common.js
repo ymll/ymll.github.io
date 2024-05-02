@@ -14,8 +14,8 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.html/i,
-        use: ['html-loader'],
+        test: /\.ejs/i,
+        use: ['html-loader', 'template-ejs-loader'],
       },
       {
         test: /\.css/i,
@@ -25,7 +25,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './index.html',
+      filename: 'index.html',
+      template: './index.ejs',
     }),
     new MiniCssExtractPlugin(),
   ],
