@@ -5,9 +5,18 @@ const CopyPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const HtmlWebpackPartialsPlugin = require("html-webpack-partials-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 
 module.exports = merge(common, {
   mode: 'production',
+  module: {
+    rules: [
+      {
+        test: /\.(jpe?g|png)/i,
+        type: "asset",
+      },
+    ],
+  },
   plugins: [
     new HtmlWebpackPartialsPlugin({
       path: path.join(__dirname, './partials/analytics.html'),
@@ -39,6 +48,22 @@ module.exports = merge(common, {
             },
           ],
         },
+      }),
+      new ImageMinimizerPlugin({
+        generator: [
+          {
+            preset: "webp",
+            implementation: ImageMinimizerPlugin.sharpGenerate,
+            options: {
+              encodeOptions: {
+                webp: {
+                  lossless: false,
+                  quality: 90,
+                },
+              },
+            },
+          },
+        ],
       }),
     ],
   },
