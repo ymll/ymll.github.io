@@ -12,7 +12,7 @@ import '../css/main.css';
 
   $(document).ready(function() {
     $(window).on('scroll', function() {
-      var menu_area = $('.menu-area');
+      const menu_area = $('.menu-area');
       if ($(window).scrollTop() > 200) {
         menu_area.addClass('sticky-menu');
       } else {
@@ -21,7 +21,7 @@ import '../css/main.css';
     });
 
     $(document).on('click', '.navbar-collapse.in', function(e) {
-      if ($(e.target).is('a') && $(e.target).attr('class') != 'dropdown-toggle') {
+      if ($(e.target).is('a') && $(e.target).attr('class') !== 'dropdown-toggle') {
         $(this).collapse('hide');
       }
     });
@@ -39,7 +39,7 @@ import '../css/main.css';
       }, 1000);
     });
 
-    var element = $(".typejs");
+    const element = $(".typejs");
 
     $(function() {
       element.typed({
