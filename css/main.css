@@ -521,22 +521,28 @@ section {
   padding: 0;
   list-style: none;
   text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
 }
 
 
 .filters li {
   display: inline-block;
-  margin-right: 5px;
-  margin-bottom: 10px;
-  width: 70px;
+  margin-right: 0;
+  margin-bottom: 0;
+  width: auto;
+  min-width: 64px;
   cursor: pointer;
   color: #777;
-  font-size: 16px;
+  font-size: 15px;
   transition: 0.3s;
   -moz-transition: 0.3s;
   -webkit-transition: 0.3s;
-  padding: 5px;
+  padding: 8px 10px;
   border-radius: 5px;
+  white-space: nowrap;
 }
 
 .filters li.active {
@@ -545,10 +551,10 @@ section {
 }
 
 .filters li span {
-  font-size: 20px;
+  font-size: 18px;
   display: block;
-  margin-bottom: 10px;
-  margin-top: 5px;
+  margin-bottom: 6px;
+  margin-top: 2px;
 }
 
 .work-items {
@@ -559,15 +565,49 @@ section {
   position: relative;
   overflow: hidden;
   text-align: center;
-  margin-top: 30px;
+  margin-top: 20px;
   border-radius: 5px;
   border: 1px solid #ddd;
+  aspect-ratio: 1 / 1;
 }
 
-.work-items .item img {
-  width: auto;
-  height: 269px;
+.work-items .item > a.work-popup {
+  display: block;
+  height: 100%;
+}
+
+.work-items .item > a.work-popup img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
   transition: 0.2s ease-out;
+}
+
+/* Text tiles (no photo): same square box as the photo tiles, with a
+   small inline-SVG illustration above the title. */
+.tile-text {
+  height: 100%;
+  background: #eaf3e2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px;
+}
+
+.tile-text svg {
+  width: 64px;
+  height: auto;
+  flex: none;
+}
+
+.tile-text-title {
+  font-size: 19px;
+  color: #212121;
+  font-weight: bold;
+  line-height: 1.25;
 }
 
 .work-items .item:hover img {
@@ -605,9 +645,9 @@ section {
 }
 
 .work-items .overlay span {
-  font-size: 25px;
+  font-size: 18px;
   color: #212121;
-  padding: 25px;
+  padding: 10px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1075,10 +1115,6 @@ section {
     padding: 5px 15px;
   }
 
-  .filters li {
-    margin-bottom: 10px;
-  }
-
   .section-title h2 {
     font-size: 30px;
   }
@@ -1121,6 +1157,26 @@ section {
   }
 
   .filters li {
-    width: 50px;
+    min-width: 0;
+    padding: 6px 8px;
+    font-size: 13px;
+  }
+
+  .filters li span {
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+
+  .tile-text svg {
+    width: 40px;
+  }
+
+  .tile-text-title {
+    font-size: 14px;
+  }
+
+  .tile-text {
+    gap: 6px;
+    padding: 8px;
   }
 }
