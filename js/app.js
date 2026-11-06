@@ -68,7 +68,8 @@ import '../css/main.css';
         enabled: true,
         duration: 300,
         opener: function(element) {
-          return element.find('img');
+          var img = element.find('img');
+          return img.length ? img : element;
         }
       }
     });
