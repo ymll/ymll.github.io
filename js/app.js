@@ -74,18 +74,6 @@ import '../css/main.css';
       }
     });
 
-    $(".testimonial-list").owlCarousel({
-      lazyLoad: false,
-      pagination: false,
-      navigation: false,
-      items: 1,
-      itemsDesktop: [1199, 1],
-      itemsDesktopSmall: [980, 1],
-      itemsTablet: [768, 1],
-      itemsMobile: [479, 1],
-      autoPlay: true
-    });
-
     $('#carousel-example-generic').carousel({
       interval: 6000,
       cycle: true
