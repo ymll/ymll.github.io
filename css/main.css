@@ -749,6 +749,28 @@ section {
   font-style: italic;
 }
 
+.awards-subhead {
+  font-size: 15px;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 15px;
+}
+
+.award {
+  margin-bottom: 25px;
+}
+
+.award h3 {
+  font-size: 19px;
+  margin: 0 0 5px;
+}
+
+.award p {
+  margin: 0 0 3px;
+  color: #555;
+}
+
 .contact-area .container {
   max-width: 700px;
 }
