@@ -770,46 +770,60 @@ section {
   text-decoration: underline;
 }
 
-/* The gap before "Favourite quotes" was the publications section's own
-   100px bottom padding PLUS this 40px margin and 25px padding stacked
-   on top (156px of empty space) — a mistake, not a design choice.
-   One normal section spacing is the section padding alone. */
-.quotes-strip {
-  margin-top: 0;
-  padding-top: 0;
-  border-top: 1px solid #eee;
+/* "Favourite quotes" is now a slim divider (分隔線), not a section:
+   one short quote in small centred text between two thin rules. */
+.quote-divider {
+  padding: 26px 15px;
+  text-align: center;
 }
 
-.quotes-strip-title {
+.quote-divider-text {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  max-width: 880px;
+  margin: 0 auto;
   font-size: 15px;
-  color: #999;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-top: 0;
-  margin-bottom: 15px;
-}
-
-.quote-featured {
-  border-left: 3px solid #77be2d;
-  padding-left: 15px;
-  margin: 0 0 15px;
-}
-
-.quote-featured p {
-  font-size: 17px;
   font-style: italic;
-  color: #333;
-}
-
-.quote-featured footer {
-  font-size: 14px;
+  line-height: 1.6;
   color: #777;
 }
 
-.quote-small {
-  font-size: 13px;
-  color: #888;
-  font-style: italic;
+.quote-divider-text::before,
+.quote-divider-text::after {
+  content: "";
+  flex: 1 1 auto;
+  border-top: 1px solid #ddd;
+}
+
+.quote-divider-attrib {
+  font-style: normal;
+  color: #999;
+  white-space: nowrap;
+}
+
+/* Narrow screens: stack the quote and attribution, centred, with a
+   single hairline above — the side-by-side flex layout squeezes the
+   flanking rules out and strands the attribution mid-height. */
+@media (max-width: 767px) {
+  .quote-divider {
+    padding: 22px 20px;
+    border-top: 1px solid #eee;
+  }
+
+  .quote-divider-text {
+    display: block;
+  }
+
+  .quote-divider-text::before,
+  .quote-divider-text::after {
+    display: none;
+  }
+
+  .quote-divider-attrib {
+    display: block;
+    margin-top: 6px;
+  }
 }
 
 /* Awards & Volunteering cards: same showcase style as the project tiles —
@@ -941,6 +955,11 @@ section {
   height: auto;
 }
 
+.popup-visual img {
+  width: 100%;
+  display: block;
+}
+
 .room-label {
   font-size: 15px;
   color: #999;
@@ -950,7 +969,7 @@ section {
 }
 
 #quotes {
-  padding-bottom: 60px;
+  padding-bottom: 28px;
 }
 
 .contact-area .container {
@@ -1463,25 +1482,22 @@ html.dark-mode .publication .pub-link {
   color: #a3d97e;
 }
 
-/* Quotes strip. */
-html.dark-mode .quotes-strip {
+/* Quote divider (slim 分隔線). */
+html.dark-mode .quote-divider {
   border-top-color: #2a2a2a;
 }
 
-html.dark-mode .quotes-strip-title {
+html.dark-mode .quote-divider-text {
+  color: #aaa;
+}
+
+html.dark-mode .quote-divider-text::before,
+html.dark-mode .quote-divider-text::after {
+  border-top-color: #444;
+}
+
+html.dark-mode .quote-divider-attrib {
   color: #888;
-}
-
-html.dark-mode .quote-featured p {
-  color: #ddd;
-}
-
-html.dark-mode .quote-featured footer {
-  color: #aaa;
-}
-
-html.dark-mode .quote-small {
-  color: #aaa;
 }
 
 /* Footer. */
