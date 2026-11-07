@@ -771,6 +771,14 @@ section {
   color: #555;
 }
 
+.award-source a {
+  font-size: 13px;
+}
+
+#quotes {
+  padding-bottom: 60px;
+}
+
 .contact-area .container {
   max-width: 700px;
 }
