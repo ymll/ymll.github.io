@@ -584,6 +584,14 @@ section {
   transition: 0.2s ease-out;
 }
 
+/* Wide logo/diagram images carry text to the edges: letterbox them
+   instead of cropping (object-fit: cover would cut the text off). */
+.work-items .item > a.work-popup img.img-contain {
+  object-fit: contain;
+  background: #fff;
+  padding: 12px;
+}
+
 /* Text tiles (no photo): same square box as the photo tiles, with a
    small inline-SVG illustration above the title. */
 .tile-text {
@@ -723,6 +731,13 @@ section {
 .publication p {
   margin: 0 0 3px;
   color: #555;
+}
+
+/* Explicit per-paper link: unmistakable, green + underlined. */
+.publication .pub-link {
+  color: #4e7a1e;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 .quotes-strip {

@@ -60,7 +60,33 @@ import '../css/main.css';
       });
     });
 
-    $('.portfolio').mixItUp();
+    $('.portfolio').mixItUp({
+      callbacks: {
+        onMixEnd: function() {
+          updateRoomVisibility();
+        }
+      }
+    });
+    updateRoomVisibility();
+
+    /* Hide a room entirely when the active filter leaves it with no
+       visible tiles — never show an empty room heading. Rooms are
+       restored before every filter click (capture phase, so this runs
+       before MixItUp reads the layout): MixItUp cannot re-show tiles
+       inside a display:none container, so an empty room must never
+       stay hidden across a mix. */
+    document.querySelector('.filters').addEventListener('click', function() {
+      $('.portfolio .room').show();
+    }, true);
+
+    function updateRoomVisibility() {
+      $('.portfolio .room').each(function() {
+        var visible = $(this).find('.mix').filter(function() {
+          return $(this).css('display') !== 'none';
+        }).length;
+        $(this).toggle(visible > 0);
+      });
+    }
 
     $('.work-popup').magnificPopup({
       type: 'inline',
