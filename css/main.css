@@ -270,6 +270,36 @@ img {
   background: #777;
 }
 
+/* Dark-mode toggle: small moon icon in the top nav bar, next to the
+   hamburger on mobile. White over the hero image, dark once the
+   nav bar turns sticky (white background). */
+.dark-mode-toggle {
+  float: right;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  padding: 15px 8px;
+  margin-right: 4px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.dark-mode-toggle:hover,
+.dark-mode-toggle:focus {
+  color: #77be2d;
+  outline: none;
+}
+
+.sticky-menu .dark-mode-toggle {
+  color: #777;
+}
+
+.sticky-menu .dark-mode-toggle:hover,
+.sticky-menu .dark-mode-toggle:focus {
+  color: #4e7a1e;
+}
+
 .slider-area {
   background-image: url(../img/bkg.png);
   background-size: cover;
@@ -315,6 +345,24 @@ img {
   font-size: 26px;
   color: inherit;
   font-weight: 300;
+}
+
+/* Hero greeting: the human welcome first, typed lines as flavour below.
+   White headline, green welcome line to match the terminal accent. */
+.hero-greeting {
+  font-size: 56px;
+  line-height: 1.15;
+  font-weight: 700;
+  color: #fff;
+  margin: 18px 0 0;
+}
+
+.hero-welcome {
+  font-size: 24px;
+  line-height: 1.3;
+  font-weight: 400;
+  color: #77be2d;
+  margin: 8px 0 0;
 }
 
 .intro-text .icon-btn {
@@ -521,22 +569,28 @@ section {
   padding: 0;
   list-style: none;
   text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
 }
 
 
 .filters li {
   display: inline-block;
-  margin-right: 5px;
-  margin-bottom: 10px;
-  width: 70px;
+  margin-right: 0;
+  margin-bottom: 0;
+  width: auto;
+  min-width: 64px;
   cursor: pointer;
   color: #777;
-  font-size: 16px;
+  font-size: 15px;
   transition: 0.3s;
   -moz-transition: 0.3s;
   -webkit-transition: 0.3s;
-  padding: 5px;
+  padding: 8px 10px;
   border-radius: 5px;
+  white-space: nowrap;
 }
 
 .filters li.active {
@@ -545,10 +599,10 @@ section {
 }
 
 .filters li span {
-  font-size: 20px;
+  font-size: 18px;
   display: block;
-  margin-bottom: 10px;
-  margin-top: 5px;
+  margin-bottom: 6px;
+  margin-top: 2px;
 }
 
 .work-items {
@@ -559,15 +613,57 @@ section {
   position: relative;
   overflow: hidden;
   text-align: center;
-  margin-top: 30px;
+  margin-top: 20px;
   border-radius: 5px;
   border: 1px solid #ddd;
+  aspect-ratio: 1 / 1;
 }
 
-.work-items .item img {
-  width: auto;
-  height: 269px;
+.work-items .item > a.work-popup {
+  display: block;
+  height: 100%;
+}
+
+.work-items .item > a.work-popup img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
   transition: 0.2s ease-out;
+}
+
+/* Wide logo/diagram images carry text to the edges: letterbox them
+   instead of cropping (object-fit: cover would cut the text off). */
+.work-items .item > a.work-popup img.img-contain {
+  object-fit: contain;
+  background: #fff;
+  padding: 12px;
+}
+
+/* Text tiles (no photo): same square box as the photo tiles, with a
+   small inline-SVG illustration above the title. */
+.tile-text {
+  height: 100%;
+  background: #eaf3e2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px;
+}
+
+.tile-text svg {
+  width: 64px;
+  height: auto;
+  flex: none;
+}
+
+.tile-text-title {
+  font-size: 19px;
+  color: #212121;
+  font-weight: bold;
+  line-height: 1.25;
 }
 
 .work-items .item:hover img {
@@ -605,9 +701,9 @@ section {
 }
 
 .work-items .overlay span {
-  font-size: 25px;
+  font-size: 18px;
   color: #212121;
-  padding: 25px;
+  padding: 10px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -658,176 +754,253 @@ section {
   font-weight: 600;
 }
 
-.testimonial-area {}
-
-.testimonial-content {
-  text-align: right;
+.publication {
+  margin-bottom: 25px;
 }
 
-.single-testimonial {
+.publication h3 {
+  font-size: 19px;
+  margin: 0 0 5px;
+}
+
+.publication h3 a {
+  color: #333;
+}
+
+.publication h3 a:hover {
+  color: #4e7a1e;
+  text-decoration: underline;
+}
+
+.publication .pub-intro {
+  color: #333;
+}
+
+.publication p {
+  margin: 0 0 3px;
+  color: #555;
+}
+
+/* Explicit per-paper link: unmistakable, green + underlined. */
+.publication .pub-link {
+  color: #4e7a1e;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* "Favourite quotes" is now a slim divider (分隔線), not a section:
+   one short quote in small centred text between two thin rules. */
+.quote-divider {
+  padding: 26px 15px;
   text-align: center;
-  max-width: 700px;
-  margin: auto;
 }
 
-.single-testimonial span {
-  color: #fff;
-  padding: 25px;
-  font-size: 30px;
-  margin-bottom: 30px;
-  position: relative;
+.quote-divider-text {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  max-width: 880px;
+  margin: 0 auto;
+  font-size: 15px;
+  font-style: italic;
+  line-height: 1.6;
+  color: #777;
 }
 
-.single-testimonial span:after {
-  position: absolute;
-  content: '';
-  top: 10px;
-  left: 50%;
-  width: 60px;
-  height: 60px;
-  background: #77be2d;
-  z-index: -1;
-  transition: 0.2s ease-out;
-  margin-left: -30px;
-  transform: rotate(45deg);
+.quote-divider-text::before,
+.quote-divider-text::after {
+  content: "";
+  flex: 1 1 auto;
+  border-top: 1px solid #ddd;
+}
+
+.quote-divider-attrib {
+  font-style: normal;
+  color: #999;
+  white-space: nowrap;
+}
+
+/* Narrow screens: stack the quote and attribution, centred, with a
+   single hairline above — the side-by-side flex layout squeezes the
+   flanking rules out and strands the attribution mid-height. */
+@media (max-width: 767px) {
+  .quote-divider {
+    padding: 22px 20px;
+    border-top: 1px solid #eee;
+  }
+
+  .quote-divider-text {
+    display: block;
+  }
+
+  .quote-divider-text::before,
+  .quote-divider-text::after {
+    display: none;
+  }
+
+  .quote-divider-attrib {
+    display: block;
+    margin-top: 6px;
+  }
+}
+
+/* Awards & Volunteering cards: same showcase style as the project tiles —
+   a photo or graphic on top, a short title and one line of text.
+   Clicking a card opens a popup with the detail and the source link. */
+.award-card {
+  border: 1px solid #ddd;
   border-radius: 5px;
-}
-
-
-.testimonial-area .subtitle,
-.testimonial-area h2 {
-  margin-top: 0px;
-}
-
-.single-testimonial p {
-  font-size: 18px;
-}
-
-.single-testimonial img {
-  margin-top: 30px;
-  border-radius: 100px;
-  display: none;
-}
-
-.single-testimonial h4 {
+  overflow: hidden;
+  background: #fff;
   margin-top: 20px;
-  margin-bottom: 10px;
+  text-align: left;
 }
 
-.single-testimonial h3 {
+.award-card:hover {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+}
+
+.award-card > a.work-popup {
+  display: block;
   color: inherit;
 }
 
-.single-testimonial .desg {
-  font-size: 14px;
-  margin: 0;
+.award-card > a.work-popup:hover {
+  text-decoration: none;
 }
 
-.owl-theme .owl-controls {
-  margin-top: 30px;
+.award-photo {
+  height: 170px;
+  overflow: hidden;
+  background: #eaf3e2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.owl-theme .owl-controls .owl-page span {
+.award-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
-  width: 20px;
-  height: 5px;
-  margin: 5px 7px;
-  filter: Alpha(Opacity=50);
-  opacity: .5;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-  background: #333;
+  transition: 0.2s ease-out;
 }
 
-.owl-theme .owl-controls .owl-buttons div {
-  font-size: 25px;
-  background: none;
-  padding: 5px;
+.award-card:hover .award-photo img {
+  opacity: 0.85;
+}
+
+.award-photo svg {
+  width: 64px;
+  height: auto;
+  flex: none;
+}
+
+.award-body {
+  padding: 14px 16px 16px;
+}
+
+.award-tag {
+  font-size: 12px;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.award-card h3 {
+  font-size: 18px;
+  margin: 4px 0 5px;
+  line-height: 1.3;
+  color: #212121;
+}
+
+.award-card p {
+  margin: 0;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+@media all and (max-width: 480px) {
+  .award-photo {
+    height: 110px;
+  }
+
+  .award-photo svg {
+    width: 40px;
+  }
+
+  .award-card h3 {
+    font-size: 15px;
+  }
+
+  .award-card p {
+    font-size: 13px;
+  }
+}
+
+/* Modal CTA button: exactly one clear action per popup, same green as the tile illustrations. */
+.popup-cta {
+  display: inline-block;
+  background: #4e7a1e;
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.4;
+  padding: 12px 28px;
+  border-radius: 5px;
+  margin-top: 10px;
+  text-decoration: none;
+  transition: background 0.2s ease-out;
+}
+
+.popup-cta:hover,
+.popup-cta:focus {
+  background: #3f6318;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Visual header for popups that have no photo or screenshot — reuses the tile's illustration. */
+.popup-visual {
+  background: #eaf3e2;
+  text-align: center;
+  padding: 28px 20px;
+}
+
+.popup-visual svg {
+  width: 110px;
+  height: auto;
+}
+
+.popup-visual img {
+  width: 100%;
+  display: block;
+}
+
+.room-label {
+  font-size: 15px;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 10px;
+}
+
+#quotes {
+  padding-bottom: 28px;
 }
 
 .contact-area .container {
   max-width: 700px;
 }
 
-.contact-form {}
-
-.form-control {
-  display: block;
-  border: 0px;
-  width: 100%;
-  height: 45px;
-  padding: 5px 0px;
-  color: #333;
-  box-shadow: none;
-  margin: 5px 0;
+.contact-intro {
+  margin: 0 0 24px;
 }
 
-.form-control:focus {
-  border-color: #333;
-  outline: 0;
-  box-shadow: none;
-}
+/* Contact section now uses a mailto button (no form); the old form
+   styles were removed with the form in fix run 6. */
 
-.contact-form .form-group {
-  position: relative;
-  padding-left: 35px;
-  border-bottom: 1px solid #ddd;
-  margin: 0;
-  margin-bottom: 20px;
-  border-radius: 5px;
-}
-
-.contact-form .form-group:before {
-  position: absolute;
-  height: 50px;
-  font-family: FontAwesome;
-  top: 0;
-  left: 5px;
-  width: 20px;
-  text-align: center;
-  line-height: 45px;
-  color: #77be2d;
-}
-
-.in_name:before {
-  content: '\f007';
-}
-
-.in_email:before {
-  content: '\f1d8';
-}
-
-.in_message:before {
-  content: '\f0e0';
-}
-
-.contact-form textarea#message {
-  padding-top: 10px;
-  height: 99px;
-}
-
-.contact-form .actions {
-  text-align: center;
-}
-
-#submitButton {
-  margin-top: 30px;
-}
-
-.success {
-  background: #fff none repeat scroll 0 0;
-  color: #50B948;
-  font-weight: 700;
-  padding: 20px;
-  text-align: center;
-}
-
-.error {
-  background: #fff none repeat scroll 0 0;
-  color: #ff0000;
-  font-weight: 700;
-  padding: 20px;
-  text-align: center;
-}
 
 .contact-info {
   margin-bottom: 30px;
@@ -944,10 +1117,6 @@ section {
     margin: 20px 0;
   }
 
-  .testimonial-item i.fa {
-    margin-top: 20px;
-  }
-
   .contact-info,
   .video-area .accordion {
     margin-top: 30px;
@@ -957,18 +1126,14 @@ section {
     margin-top: 15px;
   }
 
-  .testimonial-content {
-    margin-bottom: 30px;
-    text-align: left;
-  }
-
-  .contact-form {
-    margin-bottom: 30px;
-  }
 
 }
 
 @media only screen and (max-width: 767px) {
+
+  body {
+    font-size: 16px;
+  }
 
   body,
   p {
@@ -1008,6 +1173,16 @@ section {
   .action-area h2,
   .intro-text h2 {
     font-size: 20px;
+  }
+
+  .hero-greeting {
+    font-size: 34px;
+    margin-top: 14px;
+  }
+
+  .hero-welcome {
+    font-size: 19px;
+    margin-top: 6px;
   }
 
   .btn,
@@ -1075,8 +1250,10 @@ section {
     padding: 5px 15px;
   }
 
-  .filters li {
-    margin-bottom: 10px;
+  /* The mobile header is always white, so the moon icon is dark here
+     even before the nav bar goes sticky. */
+  .dark-mode-toggle {
+    color: #333;
   }
 
   .section-title h2 {
@@ -1092,27 +1269,6 @@ section {
     margin-top: 15px;
   }
 
-  .testimonial-content {
-    margin-bottom: 30px;
-    text-align: left;
-  }
-
-  .testimonial-list {
-    transform: translate(0);
-    margin-top: 15px
-  }
-
-  .testimonial-list.demo-2 .single-testimonial {
-    padding: 0px;
-  }
-
-  .testimonial-list.demo-3 .single-testimonial {
-    margin: 0 20px;
-  }
-
-  .contact-form {
-    margin-bottom: 30px;
-  }
 }
 
 @media only screen and (max-width: 480px) {
@@ -1121,6 +1277,285 @@ section {
   }
 
   .filters li {
-    width: 50px;
+    min-width: 0;
+    padding: 6px 8px;
+    font-size: 14px;
+  }
+
+  .filters li span {
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+
+  .tile-text svg {
+    width: 40px;
+  }
+
+  .tile-text-title {
+    font-size: 15px;
+  }
+
+  .tile-text {
+    gap: 6px;
+    padding: 8px;
+  }
+
+  #work h3 {
+    font-size: 20px;
+  }
+
+  .award-body h3 {
+    font-size: 17px;
+  }
+
+  .award-body p {
+    font-size: 15px;
+  }
+
+  .work-items-popup p {
+    font-size: 16px;
+  }
+
+  .popup-cta {
+    font-size: 17px;
+    padding: 13px 28px;
+  }
+}
+
+/* ==========================================================================
+   Dark mode — toggled by the moon icon in the nav bar (html.dark-mode),
+   remembered in localStorage, defaults to the visitor's system setting.
+   The green accent (#77be2d / #4e7a1e) is kept in both modes; text is
+   lightened to keep contrast on dark backgrounds.
+   ========================================================================== */
+html.dark-mode body {
+  background: #121212;
+  color: #c9c9c9;
+}
+
+html.dark-mode h1,
+html.dark-mode h2,
+html.dark-mode h3,
+html.dark-mode h4,
+html.dark-mode h5,
+html.dark-mode h6 {
+  color: #f0f0f0;
+}
+
+html.dark-mode .section-big {
+  border-bottom-color: #2a2a2a;
+}
+
+/* Nav bar: white sticky bar becomes dark. */
+html.dark-mode .menu-area.sticky-menu {
+  background: #1a1a1a;
+}
+
+html.dark-mode .sticky-menu .navbar-brand,
+html.dark-mode .sticky-menu .navbar-brand span {
+  color: #eee;
+}
+
+html.dark-mode .sticky-menu .navbar-nav li a {
+  color: #bbb;
+}
+
+html.dark-mode .sticky-menu .navbar-nav li.active a {
+  color: #fff;
+}
+
+html.dark-mode .navbar-toggle .icon-bar {
+  background: #bbb;
+}
+
+/* Hero: the typed lines stay green; the photo background is already dark. */
+html.dark-mode .intro-text {
+  color: #fff;
+}
+
+/* Filters. */
+html.dark-mode .filters li {
+  color: #aaa;
+}
+
+html.dark-mode .filters li.active {
+  background-color: #4e7a1e;
+  color: #fff;
+}
+
+/* Project tiles: dark boxes, light titles; the pale-green illustration
+   tiles go dark green and their line-art is brightened so it stays readable. */
+html.dark-mode .work-items .item {
+  border-color: #333;
+  background: #1e1e1e;
+}
+
+html.dark-mode .tile-text {
+  background: #22301a;
+}
+
+html.dark-mode .tile-text-title {
+  color: #eee;
+}
+
+html.dark-mode .tile-text svg,
+html.dark-mode .popup-visual svg,
+html.dark-mode .award-photo svg {
+  stroke: #a3d97e;
+}
+
+html.dark-mode .tile-text svg [fill="#4e7a1e"],
+html.dark-mode .popup-visual svg [fill="#4e7a1e"],
+html.dark-mode .award-photo svg [fill="#4e7a1e"] {
+  fill: #a3d97e;
+}
+
+html.dark-mode .work-items .item > a.work-popup img.img-contain {
+  background: #fff;
+}
+
+html.dark-mode .work-items .overlay span {
+  color: #fff;
+}
+
+html.dark-mode .item .title {
+  background: #1e1e1e;
+  color: #ccc;
+}
+
+/* Popups: dark panel, light text; Magnific Popup's overlay is dark already. */
+html.dark-mode .work-items-popup {
+  background: #1e1e1e;
+  color: #ddd;
+}
+
+html.dark-mode .work-items-popup p {
+  color: #ccc;
+}
+
+html.dark-mode .mfp-close {
+  color: #eee;
+}
+
+/* Popup image column: the popup image is a screenshot whose own page
+   background is near-white, and it fills its column edge to edge — so
+   without this the popup looks split in dark mode (white half / dark
+   half). In dark mode the image column becomes a dark panel and the
+   screenshot is shown as a framed picture on it: same dark surface as
+   the text side, image colours untouched. Light mode is unchanged. */
+html.dark-mode .work-items-popup .ajcol:first-child {
+  background: #1e1e1e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+html.dark-mode .work-items-popup .ajcol:first-child img {
+  width: 100%;
+  height: auto;
+}
+
+html.dark-mode .popup-visual {
+  background: #22301a;
+}
+
+html.dark-mode .popup-cta {
+  background: #4e7a1e;
+  color: #fff;
+}
+
+/* Awards & Volunteering cards. */
+html.dark-mode .award-card {
+  background: #1e1e1e;
+  border-color: #333;
+}
+
+html.dark-mode .award-card h3 {
+  color: #eee;
+}
+
+html.dark-mode .award-card p {
+  color: #bbb;
+}
+
+html.dark-mode .award-photo {
+  background: #22301a;
+}
+
+html.dark-mode .room-label,
+html.dark-mode .award-tag {
+  color: #888;
+}
+
+/* Publications. */
+html.dark-mode .publication h3 a {
+  color: #eee;
+}
+
+html.dark-mode .publication h3 a:hover {
+  color: #a3d97e;
+}
+
+html.dark-mode .publication .pub-intro {
+  color: #ccc;
+}
+
+html.dark-mode .publication p {
+  color: #aaa;
+}
+
+html.dark-mode .publication .pub-link {
+  color: #a3d97e;
+}
+
+/* Quote divider (slim 分隔線). */
+html.dark-mode .quote-divider {
+  border-top-color: #2a2a2a;
+}
+
+html.dark-mode .quote-divider-text {
+  color: #aaa;
+}
+
+html.dark-mode .quote-divider-text::before,
+html.dark-mode .quote-divider-text::after {
+  border-top-color: #444;
+}
+
+html.dark-mode .quote-divider-attrib {
+  color: #888;
+}
+
+/* Footer. */
+html.dark-mode .footer-area {
+  background: #1a1a1a;
+}
+
+html.dark-mode .footer-area a:hover {
+  color: #a3d97e;
+}
+
+@media only screen and (max-width: 767px) {
+  html.dark-mode .menu-area .container {
+    background: #1a1a1a;
+    box-shadow: 0 0 5px #000;
+  }
+
+  html.dark-mode .navbar-fixed-bottom .navbar-collapse,
+  html.dark-mode .navbar-fixed-top .navbar-collapse {
+    background: #1a1a1a;
+  }
+
+  html.dark-mode .navbar-brand,
+  html.dark-mode .navbar-brand span,
+  html.dark-mode .navbar-brand:hover,
+  html.dark-mode .navbar-brand span:hover {
+    color: #eee;
+  }
+
+  html.dark-mode .dark-mode-toggle {
+    color: #bbb;
   }
 }

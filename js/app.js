@@ -51,7 +51,10 @@ import '../css/main.css';
           "cout << \"Hello World!\" << endl;",
           "console.log(\"Hello World!\");",
           "Write-Output \"Hello World!\"",
-          "Console.WriteLine(\"Hello World!\");"
+          "Console.WriteLine(\"Hello World!\");",
+          "?- write('Hello World!'), nl.",
+          "disp('Hello World!')",
+          "SELECT 'Hello World!';"
         ],
         typeSpeed: 50,
         loop: true,
@@ -60,7 +63,57 @@ import '../css/main.css';
       });
     });
 
-    $('.portfolio').mixItUp();
+    /* Dark mode: remember the choice in localStorage; on first visit
+       follow the visitor's system preference. The preloader covers
+       the page until load, so applying here causes no visible flash. */
+    var storedTheme = null;
+    try { storedTheme = localStorage.getItem('theme'); } catch (e) { /* private mode */ }
+    var darkMode = storedTheme
+      ? storedTheme === 'dark'
+      : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    var $themeToggle = $('#dark-mode-toggle');
+    function applyTheme(dark) {
+      document.documentElement.classList.toggle('dark-mode', dark);
+      $themeToggle.find('.fa')
+        .toggleClass('fa-moon-o', !dark)
+        .toggleClass('fa-sun-o', dark);
+      $themeToggle.attr('aria-pressed', dark ? 'true' : 'false');
+      $themeToggle.attr('title', dark ? 'Switch to light mode' : 'Switch to dark mode');
+    }
+    applyTheme(darkMode);
+    $themeToggle.on('click', function() {
+      darkMode = !darkMode;
+      try { localStorage.setItem('theme', darkMode ? 'dark' : 'light'); } catch (e) { /* private mode */ }
+      applyTheme(darkMode);
+    });
+
+    $('.portfolio').mixItUp({
+      callbacks: {
+        onMixEnd: function() {
+          updateRoomVisibility();
+        }
+      }
+    });
+    updateRoomVisibility();
+
+    /* Hide a room entirely when the active filter leaves it with no
+       visible tiles — never show an empty room heading. Rooms are
+       restored before every filter click (capture phase, so this runs
+       before MixItUp reads the layout): MixItUp cannot re-show tiles
+       inside a display:none container, so an empty room must never
+       stay hidden across a mix. */
+    document.querySelector('.filters').addEventListener('click', function() {
+      $('.portfolio .room').show();
+    }, true);
+
+    function updateRoomVisibility() {
+      $('.portfolio .room').each(function() {
+        var visible = $(this).find('.mix').filter(function() {
+          return $(this).css('display') !== 'none';
+        }).length;
+        $(this).toggle(visible > 0);
+      });
+    }
 
     $('.work-popup').magnificPopup({
       type: 'inline',
@@ -68,21 +121,10 @@ import '../css/main.css';
         enabled: true,
         duration: 300,
         opener: function(element) {
-          return element.find('img');
+          var img = element.find('img');
+          return img.length ? img : element;
         }
       }
-    });
-
-    $(".testimonial-list").owlCarousel({
-      lazyLoad: false,
-      pagination: false,
-      navigation: false,
-      items: 1,
-      itemsDesktop: [1199, 1],
-      itemsDesktopSmall: [980, 1],
-      itemsTablet: [768, 1],
-      itemsMobile: [479, 1],
-      autoPlay: true
     });
 
     $('#carousel-example-generic').carousel({
