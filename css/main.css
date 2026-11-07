@@ -749,30 +749,99 @@ section {
   font-style: italic;
 }
 
-.awards-subhead {
-  font-size: 15px;
+/* Awards & Volunteering cards: same showcase style as the project tiles —
+   a photo or graphic on top, a short title and one line of text.
+   Clicking a card opens a popup with the detail and the source link. */
+.award-card {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  background: #fff;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.award-card:hover {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+}
+
+.award-card > a.work-popup {
+  display: block;
+  color: inherit;
+}
+
+.award-card > a.work-popup:hover {
+  text-decoration: none;
+}
+
+.award-photo {
+  height: 170px;
+  overflow: hidden;
+  background: #eaf3e2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.award-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: 0.2s ease-out;
+}
+
+.award-card:hover .award-photo img {
+  opacity: 0.85;
+}
+
+.award-photo svg {
+  width: 64px;
+  height: auto;
+  flex: none;
+}
+
+.award-body {
+  padding: 14px 16px 16px;
+}
+
+.award-tag {
+  font-size: 12px;
   color: #999;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin: 0 0 15px;
 }
 
-.award {
-  margin-bottom: 25px;
+.award-card h3 {
+  font-size: 18px;
+  margin: 4px 0 5px;
+  line-height: 1.3;
+  color: #212121;
 }
 
-.award h3 {
-  font-size: 19px;
-  margin: 0 0 5px;
-}
-
-.award p {
-  margin: 0 0 3px;
+.award-card p {
+  margin: 0;
   color: #555;
+  font-size: 14px;
+  line-height: 1.45;
 }
 
-.award-source a {
-  font-size: 13px;
+@media all and (max-width: 480px) {
+  .award-photo {
+    height: 110px;
+  }
+
+  .award-photo svg {
+    width: 40px;
+  }
+
+  .award-card h3 {
+    font-size: 15px;
+  }
+
+  .award-card p {
+    font-size: 13px;
+  }
 }
 
 #quotes {
