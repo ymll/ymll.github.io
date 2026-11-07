@@ -707,6 +707,19 @@ section {
   margin: 0 0 5px;
 }
 
+.publication h3 a {
+  color: #333;
+}
+
+.publication h3 a:hover {
+  color: #4e7a1e;
+  text-decoration: underline;
+}
+
+.publication .pub-intro {
+  color: #333;
+}
+
 .publication p {
   margin: 0 0 3px;
   color: #555;
@@ -842,6 +855,48 @@ section {
   .award-card p {
     font-size: 13px;
   }
+}
+
+/* Modal CTA button: exactly one clear action per popup, same green as the tile illustrations. */
+.popup-cta {
+  display: inline-block;
+  background: #4e7a1e;
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.4;
+  padding: 12px 28px;
+  border-radius: 5px;
+  margin-top: 10px;
+  text-decoration: none;
+  transition: background 0.2s ease-out;
+}
+
+.popup-cta:hover,
+.popup-cta:focus {
+  background: #3f6318;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Visual header for popups that have no photo or screenshot — reuses the tile's illustration. */
+.popup-visual {
+  background: #eaf3e2;
+  text-align: center;
+  padding: 28px 20px;
+}
+
+.popup-visual svg {
+  width: 110px;
+  height: auto;
+}
+
+.room-label {
+  font-size: 15px;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 10px;
 }
 
 #quotes {
@@ -1065,6 +1120,10 @@ section {
 
 @media only screen and (max-width: 767px) {
 
+  body {
+    font-size: 16px;
+  }
+
   body,
   p {
     line-height: 25px;
@@ -1196,7 +1255,7 @@ section {
   .filters li {
     min-width: 0;
     padding: 6px 8px;
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .filters li span {
@@ -1209,11 +1268,32 @@ section {
   }
 
   .tile-text-title {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .tile-text {
     gap: 6px;
     padding: 8px;
+  }
+
+  #work h3 {
+    font-size: 20px;
+  }
+
+  .award-body h3 {
+    font-size: 17px;
+  }
+
+  .award-body p {
+    font-size: 15px;
+  }
+
+  .work-items-popup p {
+    font-size: 16px;
+  }
+
+  .popup-cta {
+    font-size: 17px;
+    padding: 13px 28px;
   }
 }
