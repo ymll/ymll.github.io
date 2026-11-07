@@ -88,6 +88,18 @@ test('quotes are a slim divider, not a Favourite quotes section', async ({ page 
   expect(bodyText).not.toMatch(/favourite quotes/i);
 });
 
+test('hero greets visitors before the typed lines', async ({ page }) => {
+  await expect(page.locator('.intro-text h2')).toHaveText('./ymll.github.io');
+  await expect(page.locator('.hero-greeting')).toHaveText("Hi, I'm Lily Yung.");
+  await expect(page.locator('.hero-welcome')).toHaveText('Welcome to my portfolio.');
+  // Greeting sits above the typed hello-world lines in the hero.
+  const order = await page.evaluate(() => {
+    const els = [...document.querySelectorAll('.intro-text h2, .hero-greeting, .hero-welcome, .hello-world')];
+    return els.map((el) => el.className || el.tagName);
+  });
+  expect(order).toEqual(['H2', 'hero-greeting', 'hero-welcome', 'hello-world']);
+});
+
 test('hello world: all 11 lines in the built bundle and typing on the page', async ({ page }) => {
   const bundle = fs.readFileSync(path.join(__dirname, '..', 'dist', 'app.js'), 'utf8');
   for (const line of HELLO_WORLD_LINES) {

@@ -347,6 +347,24 @@ img {
   font-weight: 300;
 }
 
+/* Hero greeting: the human welcome first, typed lines as flavour below.
+   White headline, green welcome line to match the terminal accent. */
+.hero-greeting {
+  font-size: 56px;
+  line-height: 1.15;
+  font-weight: 700;
+  color: #fff;
+  margin: 18px 0 0;
+}
+
+.hero-welcome {
+  font-size: 24px;
+  line-height: 1.3;
+  font-weight: 400;
+  color: #77be2d;
+  margin: 8px 0 0;
+}
+
 .intro-text .icon-btn {
   margin-top: 30px;
   font-size: 25px;
@@ -1155,6 +1173,16 @@ section {
   .action-area h2,
   .intro-text h2 {
     font-size: 20px;
+  }
+
+  .hero-greeting {
+    font-size: 34px;
+    margin-top: 14px;
+  }
+
+  .hero-welcome {
+    font-size: 19px;
+    margin-top: 6px;
   }
 
   .btn,
