@@ -87,17 +87,6 @@ import '../css/main.css';
       applyTheme(darkMode);
     });
 
-    /* Contact form: FormSubmit redirects back with ?sent=1 — show the
-       thank-you note, then clean the URL so a refresh doesn't re-show it. */
-    if (new URLSearchParams(window.location.search).get('sent') === '1') {
-      $('#contact-thanks').show();
-      if (window.history && window.history.replaceState) {
-        var clean = new URL(window.location.href);
-        clean.searchParams.delete('sent');
-        window.history.replaceState(null, '', clean.pathname + clean.search + clean.hash);
-      }
-    }
-
     $('.portfolio').mixItUp({
       callbacks: {
         onMixEnd: function() {
