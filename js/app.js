@@ -60,6 +60,41 @@ import '../css/main.css';
       });
     });
 
+    /* Dark mode: remember the choice in localStorage; on first visit
+       follow the visitor's system preference. The preloader covers
+       the page until load, so applying here causes no visible flash. */
+    var storedTheme = null;
+    try { storedTheme = localStorage.getItem('theme'); } catch (e) { /* private mode */ }
+    var darkMode = storedTheme
+      ? storedTheme === 'dark'
+      : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    var $themeToggle = $('#dark-mode-toggle');
+    function applyTheme(dark) {
+      document.documentElement.classList.toggle('dark-mode', dark);
+      $themeToggle.find('.fa')
+        .toggleClass('fa-moon-o', !dark)
+        .toggleClass('fa-sun-o', dark);
+      $themeToggle.attr('aria-pressed', dark ? 'true' : 'false');
+      $themeToggle.attr('title', dark ? 'Switch to light mode' : 'Switch to dark mode');
+    }
+    applyTheme(darkMode);
+    $themeToggle.on('click', function() {
+      darkMode = !darkMode;
+      try { localStorage.setItem('theme', darkMode ? 'dark' : 'light'); } catch (e) { /* private mode */ }
+      applyTheme(darkMode);
+    });
+
+    /* Contact form: FormSubmit redirects back with ?sent=1 — show the
+       thank-you note, then clean the URL so a refresh doesn't re-show it. */
+    if (new URLSearchParams(window.location.search).get('sent') === '1') {
+      $('#contact-thanks').show();
+      if (window.history && window.history.replaceState) {
+        var clean = new URL(window.location.href);
+        clean.searchParams.delete('sent');
+        window.history.replaceState(null, '', clean.pathname + clean.search + clean.hash);
+      }
+    }
+
     $('.portfolio').mixItUp({
       callbacks: {
         onMixEnd: function() {

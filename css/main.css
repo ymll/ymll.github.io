@@ -270,6 +270,36 @@ img {
   background: #777;
 }
 
+/* Dark-mode toggle: small moon icon in the top nav bar, next to the
+   hamburger on mobile. White over the hero image, dark once the
+   nav bar turns sticky (white background). */
+.dark-mode-toggle {
+  float: right;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  padding: 15px 8px;
+  margin-right: 4px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.dark-mode-toggle:hover,
+.dark-mode-toggle:focus {
+  color: #77be2d;
+  outline: none;
+}
+
+.sticky-menu .dark-mode-toggle {
+  color: #777;
+}
+
+.sticky-menu .dark-mode-toggle:hover,
+.sticky-menu .dark-mode-toggle:focus {
+  color: #4e7a1e;
+}
+
 .slider-area {
   background-image: url(../img/bkg.png);
   background-size: cover;
@@ -740,9 +770,13 @@ section {
   text-decoration: underline;
 }
 
+/* The gap before "Favourite quotes" was the publications section's own
+   100px bottom padding PLUS this 40px margin and 25px padding stacked
+   on top (156px of empty space) — a mistake, not a design choice.
+   One normal section spacing is the section padding alone. */
 .quotes-strip {
-  margin-top: 40px;
-  padding-top: 25px;
+  margin-top: 0;
+  padding-top: 0;
   border-top: 1px solid #eee;
 }
 
@@ -751,6 +785,7 @@ section {
   color: #999;
   text-transform: uppercase;
   letter-spacing: 1px;
+  margin-top: 0;
   margin-bottom: 15px;
 }
 
@@ -1244,6 +1279,12 @@ section {
     padding: 5px 15px;
   }
 
+  /* The mobile header is always white, so the moon icon is dark here
+     even before the nav bar goes sticky. */
+  .dark-mode-toggle {
+    color: #333;
+  }
+
   .section-title h2 {
     font-size: 30px;
   }
@@ -1310,5 +1351,244 @@ section {
   .popup-cta {
     font-size: 17px;
     padding: 13px 28px;
+  }
+}
+
+/* ==========================================================================
+   Dark mode — toggled by the moon icon in the nav bar (html.dark-mode),
+   remembered in localStorage, defaults to the visitor's system setting.
+   The green accent (#77be2d / #4e7a1e) is kept in both modes; text is
+   lightened to keep contrast on dark backgrounds.
+   ========================================================================== */
+html.dark-mode body {
+  background: #121212;
+  color: #c9c9c9;
+}
+
+html.dark-mode h1,
+html.dark-mode h2,
+html.dark-mode h3,
+html.dark-mode h4,
+html.dark-mode h5,
+html.dark-mode h6 {
+  color: #f0f0f0;
+}
+
+html.dark-mode .section-big {
+  border-bottom-color: #2a2a2a;
+}
+
+/* Nav bar: white sticky bar becomes dark. */
+html.dark-mode .menu-area.sticky-menu {
+  background: #1a1a1a;
+}
+
+html.dark-mode .sticky-menu .navbar-brand,
+html.dark-mode .sticky-menu .navbar-brand span {
+  color: #eee;
+}
+
+html.dark-mode .sticky-menu .navbar-nav li a {
+  color: #bbb;
+}
+
+html.dark-mode .sticky-menu .navbar-nav li.active a {
+  color: #fff;
+}
+
+html.dark-mode .navbar-toggle .icon-bar {
+  background: #bbb;
+}
+
+/* Hero: the typed lines stay green; the photo background is already dark. */
+html.dark-mode .intro-text {
+  color: #fff;
+}
+
+/* Filters. */
+html.dark-mode .filters li {
+  color: #aaa;
+}
+
+html.dark-mode .filters li.active {
+  background-color: #4e7a1e;
+  color: #fff;
+}
+
+/* Project tiles: dark boxes, light titles; the pale-green illustration
+   tiles go dark green and their line-art is brightened so it stays readable. */
+html.dark-mode .work-items .item {
+  border-color: #333;
+  background: #1e1e1e;
+}
+
+html.dark-mode .tile-text {
+  background: #22301a;
+}
+
+html.dark-mode .tile-text-title {
+  color: #eee;
+}
+
+html.dark-mode .tile-text svg,
+html.dark-mode .popup-visual svg,
+html.dark-mode .award-photo svg {
+  stroke: #a3d97e;
+}
+
+html.dark-mode .tile-text svg [fill="#4e7a1e"],
+html.dark-mode .popup-visual svg [fill="#4e7a1e"],
+html.dark-mode .award-photo svg [fill="#4e7a1e"] {
+  fill: #a3d97e;
+}
+
+html.dark-mode .work-items .item > a.work-popup img.img-contain {
+  background: #fff;
+}
+
+html.dark-mode .work-items .overlay span {
+  color: #fff;
+}
+
+html.dark-mode .item .title {
+  background: #1e1e1e;
+  color: #ccc;
+}
+
+/* Popups: dark panel, light text; Magnific Popup's overlay is dark already. */
+html.dark-mode .work-items-popup {
+  background: #1e1e1e;
+  color: #ddd;
+}
+
+html.dark-mode .work-items-popup p {
+  color: #ccc;
+}
+
+html.dark-mode .mfp-close {
+  color: #eee;
+}
+
+html.dark-mode .popup-visual {
+  background: #22301a;
+}
+
+html.dark-mode .popup-cta {
+  background: #4e7a1e;
+  color: #fff;
+}
+
+/* Awards & Volunteering cards. */
+html.dark-mode .award-card {
+  background: #1e1e1e;
+  border-color: #333;
+}
+
+html.dark-mode .award-card h3 {
+  color: #eee;
+}
+
+html.dark-mode .award-card p {
+  color: #bbb;
+}
+
+html.dark-mode .award-photo {
+  background: #22301a;
+}
+
+html.dark-mode .room-label,
+html.dark-mode .award-tag {
+  color: #888;
+}
+
+/* Publications. */
+html.dark-mode .publication h3 a {
+  color: #eee;
+}
+
+html.dark-mode .publication h3 a:hover {
+  color: #a3d97e;
+}
+
+html.dark-mode .publication .pub-intro {
+  color: #ccc;
+}
+
+html.dark-mode .publication p {
+  color: #aaa;
+}
+
+html.dark-mode .publication .pub-link {
+  color: #a3d97e;
+}
+
+/* Quotes strip. */
+html.dark-mode .quotes-strip {
+  border-top-color: #2a2a2a;
+}
+
+html.dark-mode .quotes-strip-title {
+  color: #888;
+}
+
+html.dark-mode .quote-featured p {
+  color: #ddd;
+}
+
+html.dark-mode .quote-featured footer {
+  color: #aaa;
+}
+
+html.dark-mode .quote-small {
+  color: #aaa;
+}
+
+/* Contact form. */
+html.dark-mode .contact-form .form-group {
+  border-bottom-color: #333;
+}
+
+html.dark-mode .form-control {
+  color: #eee;
+  background: transparent;
+}
+
+html.dark-mode .form-control::placeholder {
+  color: #888;
+}
+
+html.dark-mode .success {
+  background: #1e1e1e;
+}
+
+/* Footer. */
+html.dark-mode .footer-area {
+  background: #1a1a1a;
+}
+
+html.dark-mode .footer-area a:hover {
+  color: #a3d97e;
+}
+
+@media only screen and (max-width: 767px) {
+  html.dark-mode .menu-area .container {
+    background: #1a1a1a;
+    box-shadow: 0 0 5px #000;
+  }
+
+  html.dark-mode .navbar-fixed-bottom .navbar-collapse,
+  html.dark-mode .navbar-fixed-top .navbar-collapse {
+    background: #1a1a1a;
+  }
+
+  html.dark-mode .navbar-brand,
+  html.dark-mode .navbar-brand span,
+  html.dark-mode .navbar-brand:hover,
+  html.dark-mode .navbar-brand span:hover {
+    color: #eee;
+  }
+
+  html.dark-mode .dark-mode-toggle {
+    color: #bbb;
   }
 }
