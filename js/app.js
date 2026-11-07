@@ -51,7 +51,10 @@ import '../css/main.css';
           "cout << \"Hello World!\" << endl;",
           "console.log(\"Hello World!\");",
           "Write-Output \"Hello World!\"",
-          "Console.WriteLine(\"Hello World!\");"
+          "Console.WriteLine(\"Hello World!\");",
+          "?- write('Hello World!'), nl.",
+          "disp('Hello World!')",
+          "SELECT 'Hello World!';"
         ],
         typeSpeed: 50,
         loop: true,
