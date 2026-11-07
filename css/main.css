@@ -1469,6 +1469,26 @@ html.dark-mode .mfp-close {
   color: #eee;
 }
 
+/* Popup image column: the popup image is a screenshot whose own page
+   background is near-white, and it fills its column edge to edge — so
+   without this the popup looks split in dark mode (white half / dark
+   half). In dark mode the image column becomes a dark panel and the
+   screenshot is shown as a framed picture on it: same dark surface as
+   the text side, image colours untouched. Light mode is unchanged. */
+html.dark-mode .work-items-popup .ajcol:first-child {
+  background: #1e1e1e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+html.dark-mode .work-items-popup .ajcol:first-child img {
+  width: 100%;
+  height: auto;
+}
+
 html.dark-mode .popup-visual {
   background: #22301a;
 }
