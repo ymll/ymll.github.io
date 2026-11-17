@@ -88,16 +88,41 @@ test('quotes are a slim divider, not a Favourite quotes section', async ({ page 
   expect(bodyText).not.toMatch(/favourite quotes/i);
 });
 
-test('hero greets visitors before the typed lines', async ({ page }) => {
-  await expect(page.locator('.intro-text h2')).toHaveText('./ymll.github.io');
+test('hero positions Lily as an engineer and independent builder', async ({ page }) => {
+  await expect(page.locator('.hero-eyebrow')).toHaveText('SOFTWARE ENGINEER · INDEPENDENT BUILDER');
   await expect(page.locator('.hero-greeting')).toHaveText("Hi, I'm Lily Yung.");
-  await expect(page.locator('.hero-welcome')).toHaveText('Welcome to my portfolio.');
-  // Greeting sits above the typed hello-world lines in the hero.
+  await expect(page.locator('.hero-welcome')).toHaveText('Engineer by profession. Maker by curiosity.');
+  await expect(page.locator('.hero-description')).toBeVisible();
+  await expect(page.locator('.hero-actions a')).toHaveCount(3);
+
+  // The introduction appears before the animated hello-world line.
   const order = await page.evaluate(() => {
-    const els = [...document.querySelectorAll('.intro-text h2, .hero-greeting, .hero-welcome, .hello-world')];
-    return els.map((el) => el.className || el.tagName);
+    const els = [...document.querySelectorAll('.hero-eyebrow, .hero-greeting, .hero-welcome, .hero-description, .hero-actions, .hello-world')];
+    return els.map((el) => el.className);
   });
-  expect(order).toEqual(['H2', 'hero-greeting', 'hero-welcome', 'hello-world']);
+  expect(order).toEqual([
+    'hero-eyebrow',
+    'hero-greeting',
+    'hero-welcome',
+    'hero-description',
+    'hero-actions',
+    'hello-world',
+  ]);
+});
+
+test('featured products and engineering experience are linked and visible', async ({ page }) => {
+  const products = page.locator('#featured-work .featured-card');
+  await expect(products).toHaveCount(2);
+  await expect(products.nth(0)).toContainText('TheAnnounce');
+  await expect(products.nth(0).locator('a.featured-link')).toHaveAttribute('href', 'https://theannounce.com');
+  await expect(products.nth(1)).toContainText('FreeAICommand');
+  await expect(products.nth(1).locator('a.featured-link')).toHaveAttribute('href', 'https://freeaicommand.com');
+
+  const experience = page.locator('#experience .experience-item');
+  await expect(experience).toHaveCount(3);
+  await expect(experience.nth(0)).toContainText('Goldman Sachs');
+  await expect(experience.nth(1)).toContainText('Amazon');
+  await expect(experience.nth(2)).toContainText('Independent builder');
 });
 
 test('hello world: all 11 lines in the built bundle and typing on the page', async ({ page }) => {

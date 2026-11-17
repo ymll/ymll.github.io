@@ -1,0 +1,50 @@
+name: Validate portfolio
+
+on:
+  # Run CI for Codex feature branches without deploying them.
+  push:
+    branches:
+      - "codex/**"
+  # Also validate PRs once this workflow exists on the base branch.
+  pull_request:
+    branches:
+      - master
+
+permissions:
+  contents: read
+
+concurrency:
+  group: portfolio-validation-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Build and run desktop/mobile end-to-end tests
+        run: npm run test:e2e
+
+      - name: Upload Playwright results on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-playwright-results
+          path: test-results/
+          if-no-files-found: ignore
+          retention-days: 7
